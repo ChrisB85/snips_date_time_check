@@ -1,5 +1,12 @@
 #/usr/bin/env bash -e
 
+config="./config.ini"
+config_default="./config.ini.default"
+if [ ! -f "$config" ]
+then
+    cp $config_default $config
+fi
+
 VENV=venv
 
 if [ ! -d "$VENV" ]
@@ -17,4 +24,6 @@ fi
 
 . $VENV/bin/activate
 
+pip3 install --upgrade pip
 pip3 install -r requirements.txt
+pip3 install --upgrade hermes-python

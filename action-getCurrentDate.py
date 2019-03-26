@@ -5,6 +5,7 @@ import configparser
 from hermes_python.hermes import Hermes
 from hermes_python.ontology import *
 import io
+import mqtt_client
 
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
 CONFIG_INI = "config.ini"
@@ -55,6 +56,6 @@ def action_wrapper(hermes, intentMessage, conf):
 
 
 if __name__ == "__main__":
-    with Hermes("localhost:1883") as h:
+    with Hermes(mqtt_options = mqtt_client.get_mqtt_options()) as h:
         h.subscribe_intent("kblachowicz:getCurrentDate", subscribe_intent_callback) \
          .start()
