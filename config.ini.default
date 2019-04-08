@@ -1,9 +1,3 @@
 [global]
 prefix = kblachowicz:
 intent = getCurrentDate,getCurrentDay,getCurrentTime
-
-[secret]
-host = localhost
-port = 1883
-user = 
-pass = 
